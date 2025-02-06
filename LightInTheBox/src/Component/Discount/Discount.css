@@ -1,0 +1,45 @@
+:root {
+    --discount-bg: rgb(212, 209, 209);
+    --discount-text: black;
+    --discount-hover:red;
+  }
+  
+
+.discount-row{
+    background-color: var(--discount-bg);
+}
+.discount-link a{
+color: var(--discount-text);
+text-decoration: none;
+font-size: 14px;
+font-weight: 400;
+}
+.discount-link a:hover{
+color: var(--discount-hover);
+}
+.discount-help:hover{
+    text-decoration: underline;
+}
+.languages{
+    width: 100px;
+}
+.drop{
+    margin-right: 30px;
+    margin-top: 5px;
+}
+.languages ul li{
+    font-size: 14px;
+    font-weight: 400;
+
+}
+.languages ul{
+    position: absolute;
+    top: 45px;
+    z-index: 999;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    width: 100px;
+    border-radius: 8px;
+    margin-left: 10px;
+    height: auto;
+}
