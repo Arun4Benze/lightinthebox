@@ -14,6 +14,12 @@ function App() {
       <Discount/>
       
       <Navbar/>
+
+
+
+      <div>
+        <h1>Checking branch and main</h1>
+      </div>
        
     </>
   )
