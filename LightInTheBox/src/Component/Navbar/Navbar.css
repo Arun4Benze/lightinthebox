@@ -36,7 +36,7 @@
 .card-size {
 
     position: absolute;
-    top: 0;
+    top: -50px;
     left: 70%;
     background-color: #fff;
     padding: 20px;
@@ -86,4 +86,29 @@
 .coll{
     display: flex;
     justify-content: space-around;
+}
+.categories a{
+    color: black;
+    font-size: 16px;
+    font-weight: 500;
+}
+.categories a:hover{
+    color: red;
+    font-size: 16px;
+    font-weight: 500;
+}
+.category-btn button{
+    color: white;
+    background-color: red;
+    outline: 0;
+    border: 0;
+    padding: 4px 20px;
+    display: flex;
+    align-items:center;
+    justify-content: space-around;
+    gap: 2px;
+    width: 200px;
+}
+.category-btn button p{
+    margin: 0;
 }

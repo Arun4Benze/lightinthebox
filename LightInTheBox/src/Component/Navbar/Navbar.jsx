@@ -2,13 +2,20 @@ import React, { useState } from 'react'
 import '../Navbar/Navbar.css';
 import logo from "../../assets/logo.jpg";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronDown, faChevronUp, faAddressCard, faHeart, faCartShopping, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { faChevronDown, faChevronUp, faAddressCard, faHeart, faCartShopping, faMagnifyingGlass ,faBars} from '@fortawesome/free-solid-svg-icons';
+import AllCategory from '../AllCategory/AllCategory';
+import ImageSlider from '../ImageSlider/ImageSlider';
 
 const Navbar = () => {
     const [registerPop, setRegisterPop] = useState(false);
     const HandleRegisterPop = () => {
-        setRegisterPop(!registerPop == true);
+        setRegisterPop(prev=>!prev);
     }
+    const HandleMouseLeave=()=>{
+        setRegisterPop(false);
+    }
+    const categories=["New Arrivals","Beach Wedding","Graphic store","st.Patrick","Lenin","Vacation vibes","Carnival","Personalised gifts"];
+    const [category,setCategory]=useState(categories);
     return (
         <>
             <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -30,7 +37,7 @@ const Navbar = () => {
                             </form>
 
                             <ul className="navbar-nav mb-lg-0 d-flex gap-3">
-                                <li onMouseEnter={HandleRegisterPop} onMouseLeave={HandleRegisterPop} className="nav-item d-flex flex-column aligin-items-center">
+                                <li onMouseEnter={HandleRegisterPop} className="nav-item d-flex flex-column aligin-items-center">
                                     <FontAwesomeIcon icon={faAddressCard} />
                                     <p>Sigin In</p>
                                 </li>
@@ -48,10 +55,24 @@ const Navbar = () => {
                         </div>
                     </div>
                 </div>
-            </nav>
+                </nav>
+{/* categories */}
+<div className="container-fluid">
+      <div className="row">
+        <div className="col-md-2 category-btn">
+            <button><FontAwesomeIcon icon={faBars} /><p>All Categories</p></button>
+        </div>
+        <div className="col-md-10 d-flex justify-content-around categories">
+         {category.map((cate,index)=>{
+            return <a href='' key={index} className='text-decoration-none'>{cate}</a>
+         })}
+        </div>
+
+      </div>
+      </div>
 
             {registerPop && (
-                <div className="card card-size">
+                <div onMouseLeave={HandleMouseLeave} className="card card-size">
                     <div className="card-header">
                         <p>Welcome to LightInTheBox</p>
                         <div className='d-flex justify-content-around gap-2'>
@@ -69,6 +90,17 @@ const Navbar = () => {
                     </ul>
                 </div>)
             }
+      <div className="container-fluid">
+      <div className="row">
+        <div className="col-md-2">
+        <AllCategory/>
+        </div>
+        <div className="col-md-8">
+            <ImageSlider/>
+        </div>
+      </div>
+      </div>
+
         </>
     )
 }
