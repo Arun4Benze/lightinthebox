@@ -2,22 +2,22 @@ import React, { useState } from 'react'
 import '../Navbar/Navbar.css';
 import logo from "../../assets/logo.jpg";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronDown, faChevronUp, faAddressCard, faHeart, faCartShopping, faMagnifyingGlass ,faBars} from '@fortawesome/free-solid-svg-icons';
-import AllCategory from '../AllCategory/AllCategory';
-import ImageSlider from '../ImageSlider/ImageSlider';
+import { faChevronDown, faChevronUp, faAddressCard, faHeart, faCartShopping, faMagnifyingGlass, faBars } from '@fortawesome/free-solid-svg-icons';
+
 
 const Navbar = () => {
     const [registerPop, setRegisterPop] = useState(false);
     const HandleRegisterPop = () => {
-        setRegisterPop(prev=>!prev);
+        setRegisterPop(prev => !prev);
     }
-    const HandleMouseLeave=()=>{
+    const HandleMouseLeave = () => {
         setRegisterPop(false);
     }
-    const categories=["New Arrivals","Beach Wedding","Graphic store","st.Patrick","Lenin","Vacation vibes","Carnival","Personalised gifts"];
-    const [category,setCategory]=useState(categories);
+    const categories = ["New Arrivals", "Beach Wedding", "Graphic store", "st.Patrick", "Lenin", "Vacation vibes", "Carnival", "Personalised gifts"];
+    const [category, setCategory] = useState(categories);
     return (
         <>
+        
             <nav className="navbar navbar-expand-lg bg-body-tertiary">
                 <div className="container-fluid pos">
                     <div className="d-flex justify-content-around align-items-center w-100">
@@ -55,21 +55,22 @@ const Navbar = () => {
                         </div>
                     </div>
                 </div>
-                </nav>
-{/* categories */}
-<div className="container-fluid">
-      <div className="row">
-        <div className="col-md-2 category-btn">
-            <button><FontAwesomeIcon icon={faBars} /><p>All Categories</p></button>
-        </div>
-        <div className="col-md-10 d-flex justify-content-around categories">
-         {category.map((cate,index)=>{
-            return <a href='' key={index} className='text-decoration-none'>{cate}</a>
-         })}
-        </div>
+            </nav>
+            {/* categories */}
+            <div className="container-fluid">
+                <div className="row">
+                    <div className="col-md-2 category-btn">
+                        <button><FontAwesomeIcon icon={faBars} /><p>All Categories</p></button>
+                    </div>
+                    <div className="col-md-10 d-flex justify-content-around categories">
+                        {category.map((cate, index) => {
+                            return <a href='' key={index} className='text-decoration-none'>{cate}</a>
+                        })}
+                    </div>
 
-      </div>
-      </div>
+                </div>
+            </div>
+            
 
             {registerPop && (
                 <div onMouseLeave={HandleMouseLeave} className="card card-size">
@@ -90,16 +91,8 @@ const Navbar = () => {
                     </ul>
                 </div>)
             }
-      <div className="container-fluid">
-      <div className="row">
-        <div className="col-md-2">
-        <AllCategory/>
-        </div>
-        <div className="col-md-8">
-            <ImageSlider/>
-        </div>
-      </div>
-      </div>
+           
+
 
         </>
     )

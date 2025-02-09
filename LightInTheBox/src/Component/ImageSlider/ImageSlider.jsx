@@ -6,6 +6,7 @@ import slide3 from "../../assets/curosel 3.avif";
 import slide4 from "../../assets/curosel 4.webp";
 import slide5 from "../../assets/curosel 5.avif";
 import slide6 from "../../assets/curosel 6.avif"
+import WomensClothing from '../WomensClothing/WomensClothing';
 
 const ImageSlider = () => {
     const slides = [slide1, slide2, slide3, slide4, slide5, slide6];
@@ -30,6 +31,7 @@ const ImageSlider = () => {
                     <span className="visually-hidden">Next</span>
                 </button>
             </div>
+           
         </>
     )
 }

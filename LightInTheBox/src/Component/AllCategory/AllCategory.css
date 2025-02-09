@@ -5,6 +5,7 @@
     background-color: antiquewhite;
     padding: 8px 0;
     height: 320px;
+    min-height: 320px;
 }
 .category a{
     text-decoration: none;
