@@ -1,0 +1,23 @@
+.dress-category h3{
+color: black;
+font-size: 18px;
+font-weight: 500;
+}
+.dress-category h3:hover{
+    color: red;
+    text-decoration: underline;
+}
+.dress-category div a{
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+    font-weight: 400;
+}
+.dress-category div a:hover{
+    color: red;
+    text-decoration: underline;
+}
+.womens-container{
+    background-color: blanchedalmond;
+}
+
