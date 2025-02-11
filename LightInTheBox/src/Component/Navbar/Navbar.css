@@ -32,6 +32,9 @@
     background-color: rgb(246, 66, 66);
     color: white;
 }
+.navbar{
+    position: relative;
+}
 
 .card-size {
     position: absolute;

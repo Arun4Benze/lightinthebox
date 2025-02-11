@@ -10,31 +10,62 @@ import ImageSlider from './Component/ImageSlider/ImageSlider.jsx';
 import WomensClothing from './Component/WomensClothing/WomensClothing.jsx';
 
 function App() {
+  const allCategory = ["Womens clothing", "Men clothing", "Shoes & bags", "Homes & garden", "Wedding & event", "Babies & kids", "Phones & accessories", "beauty & hair", "Lights & lightings", "Sports & outdoors", "Toys & Hobbies", "Electronics", "Shop by collections", "Elite collections"];
+  // const [allcategories, setAllcategories] = useState(allCategory);
+  const [selectedCategory, setSelectedCategory] = useState(null);
   
+
+  const HandleCategoryClick = (category) => {
+    setSelectedCategory(category);
+    // console.log(category);
+  }
+  const HandleMouseLeave=()=>{
+    setSelectedCategory(null)
+  }
+
+  const renderComponent = () => {
+    if (selectedCategory) {
+      switch (selectedCategory) {
+        case "Womens clothing":
+          return <WomensClothing HandleMouseLeave={HandleMouseLeave} />;
+        case "Men clothing":
+          return "mens";
+        case "Shoes & bags":
+          return "bags";
+        // Add cases for other categories and their respective components
+        default:
+          return null;
+      }
+    } else {
+      return <ImageSlider />;
+    }
+  };
+
 
   return (
     <>
-      <Discount/>
-      
-      <Navbar/>
+    
+      <Discount />
+
+      <Navbar />
       <div className="container-fluid contents">
-                <div className="row">
-                    <div className="col-md-2">
-                        <AllCategory />
-                    </div>
-                    <div className="col-md-8">
-                        <ImageSlider />
-                        <WomensClothing />
-                    </div>
-                </div>
-            </div>
+        <div className="row">
+          <div className="col-md-2">
+            <AllCategory allCategory={allCategory} HandleCategoryClick={HandleCategoryClick}/>
 
+          </div>
+          <div className="col-md-8">
 
+            {/* {selectedCategory === "Womens clothing" ? <WomensClothing /> : <ImageSlider />}
+            {selectedCategory === "Men clothing" ? "Mens" : <ImageSlider />} */}
+            {renderComponent()}
 
-      <div>
-        <h1>Checking branch and main</h1>
+          </div>
+
+        </div>
       </div>
-       
+
+
     </>
   )
 }

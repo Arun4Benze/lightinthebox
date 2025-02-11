@@ -10,8 +10,15 @@ const Navbar = () => {
     const HandleRegisterPop = () => {
         setRegisterPop(prev => !prev);
     }
+    const HandleMouseLeaveInput=()=>{
+        
+            setRegisterPop(false);
+        
+    }
     const HandleMouseLeave = () => {
-        setRegisterPop(false);
+       
+            setRegisterPop(false);
+       
     }
     const categories = ["New Arrivals", "Beach Wedding", "Graphic store", "st.Patrick", "Lenin", "Vacation vibes", "Carnival", "Personalised gifts"];
     const [category, setCategory] = useState(categories);
@@ -21,7 +28,7 @@ const Navbar = () => {
             <nav className="navbar navbar-expand-lg bg-body-tertiary">
                 <div className="container-fluid pos">
                     <div className="d-flex justify-content-around align-items-center w-100">
-                        <a class="navbar-brand" href="#">
+                        <a className="navbar-brand" href="#">
                             <img className="img-fluid logo" src={logo} alt="Lightin box" />
                         </a>
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,7 +44,7 @@ const Navbar = () => {
                             </form>
 
                             <ul className="navbar-nav mb-lg-0 d-flex gap-3">
-                                <li onMouseEnter={HandleRegisterPop} className="nav-item d-flex flex-column aligin-items-center">
+                                <li onMouseEnter={HandleRegisterPop} onMouseLeave={HandleMouseLeaveInput} className="nav-item d-flex flex-column aligin-items-center">
                                     <FontAwesomeIcon icon={faAddressCard} />
                                     <p>Sigin In</p>
                                 </li>
