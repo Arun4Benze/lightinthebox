@@ -8,6 +8,7 @@ import Navbar from './Component/Navbar/Navbar'
 import AllCategory from './Component/AllCategory/AllCategory.jsx';
 import ImageSlider from './Component/ImageSlider/ImageSlider.jsx';
 import WomensClothing from './Component/WomensClothing/WomensClothing.jsx';
+import Test from './Component/AllCategory/Test/Test.jsx';
 
 function App() {
   const allCategory = ["Womens clothing", "Men clothing", "Shoes & bags", "Homes & garden", "Wedding & event", "Babies & kids", "Phones & accessories", "beauty & hair", "Lights & lightings", "Sports & outdoors", "Toys & Hobbies", "Electronics", "Shop by collections", "Elite collections"];
@@ -65,7 +66,7 @@ function App() {
         </div>
       </div>
 
-
+<Test/>
     </>
   )
 }
