@@ -8,7 +8,8 @@ import Navbar from './Component/Navbar/Navbar'
 import AllCategory from './Component/AllCategory/AllCategory.jsx';
 import ImageSlider from './Component/ImageSlider/ImageSlider.jsx';
 import WomensClothing from './Component/WomensClothing/WomensClothing.jsx';
-import Test from './Component/AllCategory/Test/Test.jsx';
+import MensClothing from './Component/MensClothing/mensClothing.jsx';
+
 
 function App() {
   const allCategory = ["Womens clothing", "Men clothing", "Shoes & bags", "Homes & garden", "Wedding & event", "Babies & kids", "Phones & accessories", "beauty & hair", "Lights & lightings", "Sports & outdoors", "Toys & Hobbies", "Electronics", "Shop by collections", "Elite collections"];
@@ -30,7 +31,7 @@ function App() {
         case "Womens clothing":
           return <WomensClothing HandleMouseLeave={HandleMouseLeave} />;
         case "Men clothing":
-          return "mens";
+          return <MensClothing HandleMouseLeave={HandleMouseLeave}/>;
         case "Shoes & bags":
           return "bags";
         // Add cases for other categories and their respective components
@@ -57,8 +58,8 @@ function App() {
           </div>
           <div className="col-md-8">
 
-            {/* {selectedCategory === "Womens clothing" ? <WomensClothing /> : <ImageSlider />}
-            {selectedCategory === "Men clothing" ? "Mens" : <ImageSlider />} */}
+             {/* {selectedCategory === "Womens clothing" ? <WomensClothing /> : <ImageSlider />} */}
+           
             {renderComponent()}
 
           </div>
@@ -66,7 +67,7 @@ function App() {
         </div>
       </div>
 
-<Test/>
+
     </>
   )
 }

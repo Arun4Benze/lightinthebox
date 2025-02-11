@@ -66,7 +66,7 @@ const WomensClothing = ({HandleMouseLeave}) => {
                         <div className='dress-category'>
                             <h3>WomensSports</h3>
                             <div className='d-flex flex-column'> 
-                                {womensAccessories.map((sports, index) => {
+                                {womensSports.map((sports, index) => {
                                     return <a href='' key={index}>{sports}</a>
                                 })}
                             </div>
