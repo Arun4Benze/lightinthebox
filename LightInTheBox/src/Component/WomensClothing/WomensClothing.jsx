@@ -1,7 +1,7 @@
 import React from 'react';
 import "../WomensClothing/WomensClothing.css"
 
-const WomensClothing = () => {
+const WomensClothing = ({HandleMouseLeave}) => {
     const womensDresses = [
         "Maxi Dress", "A-Line Dress", "Bodycon Dress", "Shift Dress", "Wrap Dress",
         "Sundress", "Ball Gown", "Empire Waist Dress", "Peplum Dress", "Fit and Flare Dress",
@@ -26,7 +26,7 @@ const WomensClothing = () => {
 
     return (
         <>
-            <div className="container womens-container">
+            <div className="container womens-container" onMouseLeave={HandleMouseLeave}>
                 <div className="row opo">
                     <div className="col-md-6">
                         <div className='dress-category'>
