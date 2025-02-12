@@ -1,0 +1,42 @@
+.register-box{
+    background:linear-gradient(90deg,rgb(242, 127, 127),rgb(246, 208, 138));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 50%;
+}
+.register-box h2{
+    font-size: 20px;
+    font-weight: 500;
+    color: white;
+}
+.register-box p{
+    font-size:12px;
+    font-weight: 400;
+    color: white;
+}
+.welcome-sigin{
+    background-color: white;
+    color: red;
+    width: 100%;
+    margin-bottom: 10px;
+    outline: 0;
+    border: 0;
+    border-radius: 5px;
+    padding: 4px 0px;
+    height: 30px;
+}
+.welcome-register{
+    background-color: rgb(246, 191, 191);
+    color: red;
+    margin-bottom: 10px;
+    outline: 0;
+    border: 0;
+    border-radius: 5px;
+    padding: 4px 0px;
+    width: 100%;
+
+}
+.register-carnival{
+    cursor: pointer;
+}

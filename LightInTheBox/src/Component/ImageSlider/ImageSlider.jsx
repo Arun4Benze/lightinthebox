@@ -1,14 +1,14 @@
 import React from 'react'
 import "../ImageSlider/ImageSlider.css";
-import slide1 from "../../assets/curosel 1.webp";
+import slide1 from "../../assets/curosel 4.webp";
 import slide2 from "../../assets/curosel 2.webp";
 import slide3 from "../../assets/curosel 3.avif";
-import slide4 from "../../assets/curosel 4.webp";
+import slide4 from "../../assets/curosel 1.webp";
 import slide5 from "../../assets/curosel 5.avif";
 import slide6 from "../../assets/curosel 6.avif";
 
 const ImageSlider = () => {
-    const slides = [slide1, slide2, slide3, slide4, slide5, slide6];
+    const slides = [ slide1,slide2, slide3,  slide4, slide5,slide6];
     return (
         <>
             <div id="carouselExampleRide" className="carousel slide" data-bs-ride="true">
