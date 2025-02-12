@@ -9,6 +9,8 @@ import AllCategory from './Component/AllCategory/AllCategory.jsx';
 import ImageSlider from './Component/ImageSlider/ImageSlider.jsx';
 import WomensClothing from './Component/WomensClothing/WomensClothing.jsx';
 import MensClothing from './Component/MensClothing/mensClothing.jsx';
+import Bags from './Component/Bags/Bags.jsx';
+import WelcomeRegister from './Component/WelcomeRegister/WelcomeRegister.jsx';
 
 
 function App() {
@@ -33,8 +35,30 @@ function App() {
         case "Men clothing":
           return <MensClothing HandleMouseLeave={HandleMouseLeave}/>;
         case "Shoes & bags":
-          return "bags";
-        // Add cases for other categories and their respective components
+          return <Bags HandleMouseLeave={HandleMouseLeave}/>;
+          case "Homes & garden":
+          return "Homes & garden";
+        case "Wedding & event":
+          return "Wedding & event";
+          case "Babies & kids":
+          return "Babies & kids";
+          case "Phones & accessories":
+          return "Phones & accessories";
+          case "beauty & hair":
+          return "beauty & hair";
+          case "Lights & lightings":
+          return "Lights & lightings";
+          case "Sports & outdoors":
+          return "Sports & outdoors";
+          case "Toys & Hobbies":
+          return "Toys & Hobbies";
+          case "Electronics":
+          return "Electronics";
+          case "Shop by collections":
+          return "Shop by collections";
+          case "Elite collections":
+          return "Elite collections";
+        
         default:
           return null;
       }
@@ -62,6 +86,11 @@ function App() {
            
             {renderComponent()}
 
+          </div>
+          <div className="col-md-2">
+            <div className='welcome-register-container'>
+               <WelcomeRegister/>
+            </div>
           </div>
 
         </div>

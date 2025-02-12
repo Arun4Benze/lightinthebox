@@ -1,3 +1,7 @@
+*{
+    margin: 0;
+    padding: 0;
+}
 /* all clothing categeories */
 .dress-category h3{
     color: black;
@@ -19,9 +23,12 @@
         text-decoration: underline;
     }
     .womens-container{
-        background-color: blanchedalmond;
+        background-color: white !important;
         /* width: 200px; */
     }
     
-    
+    /* welcome regisrer */
+    .welcome-register-container{
+        height: 320px;
+    }
     
