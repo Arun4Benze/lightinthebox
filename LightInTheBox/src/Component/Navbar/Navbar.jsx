@@ -3,6 +3,7 @@ import '../Navbar/Navbar.css';
 import logo from "../../assets/logo.jpg";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faChevronUp, faAddressCard, faHeart, faCartShopping, faMagnifyingGlass, faBars } from '@fortawesome/free-solid-svg-icons';
+import { useLocation, useNavigate } from 'react-router';
 
 
 const Navbar = () => {
@@ -10,25 +11,42 @@ const Navbar = () => {
     const HandleRegisterPop = () => {
         setRegisterPop(prev => !prev);
     }
-    const HandleMouseLeaveInput=()=>{
-        
-            setRegisterPop(false);
-        
+    const HandleMouseLeaveInput = () => {
+
+        setRegisterPop(false);
+
     }
     const HandleMouseLeave = () => {
-       
-            setRegisterPop(false);
-       
+
+        setRegisterPop(false);
+
     }
     const categories = ["New Arrivals", "Beach Wedding", "Graphic store", "st.Patrick", "Lenin", "Vacation vibes", "Carnival", "Personalised gifts"];
     const [category, setCategory] = useState(categories);
+    const phoneCategories = [
+        "Smartphones", "Tablets","Smartwatches", "Accessories", "Laptops","Headphones","Chargers","Phone Cases"];  
+    // use navigate from react router
+    const navigate = useNavigate();
+    const navigateLogo = () => {
+        navigate("/");
+    }
+    // use location from react router
+    const location = useLocation();
+    const navbarHomeProducts = [
+        "Casual Wear", "Formal Wear", "Evening Dresses", "Party Dresses", "Summer Dresses", "Winter Dresses", "Bridal Dresses"];
+    const navbarPhoneProducts = [
+        "Smartphones", "Tablets", "Accessories", "Laptops", "Smartwatches", "Headphones", "Chargers"
+    ];
+
+
     return (
         <>
-        
+
             <nav className="navbar navbar-expand-lg bg-body-tertiary">
                 <div className="container-fluid pos">
+
                     <div className="d-flex justify-content-around align-items-center w-100">
-                        <a className="navbar-brand" href="#">
+                        <a className="navbar-brand" href="#" onClick={navigateLogo}>
                             <img className="img-fluid logo" src={logo} alt="Lightin box" />
                         </a>
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -60,9 +78,29 @@ const Navbar = () => {
                                 </li>
                             </ul>
                         </div>
+
+                    </div>
+                    <div className="nav-products">
+                        <ul className='nav-product-list'>
+                            {/* use location conditional rendering */}
+                            {
+                                location.pathname === "/" ? (
+                                    navbarHomeProducts.map((navbarHomeProduct, index) => {
+                                        return <li key={index} className="li-product">{navbarHomeProduct}</li>;
+                                    })
+                                ) : (
+                                    navbarPhoneProducts.map((navbarPhoneProduct, index) => {
+                                        return <li key={index} className="li-product">{navbarPhoneProduct}</li>;
+                                    })
+                                )
+                            }
+
+                        </ul>
                     </div>
                 </div>
             </nav>
+
+
             {/* categories */}
             <div className="container-fluid">
                 <div className="row">
@@ -70,14 +108,21 @@ const Navbar = () => {
                         <button><FontAwesomeIcon icon={faBars} /><p>All Categories</p></button>
                     </div>
                     <div className="col-md-10 d-flex justify-content-around categories">
-                        {category.map((cate, index) => {
-                            return <a href='' key={index} className='text-decoration-none'>{cate}</a>
-                        })}
+                        {location.pathname==="/"?
+                    (category.map((cate, index) => {
+                        return <a href='' key={index} className='text-decoration-none'>{cate}</a>
+                    })) :
+                    (
+                        phoneCategories.map((phcate, index) => {
+                            return <a href='' key={index} className='text-decoration-none'>{phcate}</a>
+                        })
+                    )   
+                    }
                     </div>
 
                 </div>
             </div>
-            
+
 
             {registerPop && (
                 <div onMouseLeave={HandleMouseLeave} className="card card-size">
@@ -98,7 +143,7 @@ const Navbar = () => {
                     </ul>
                 </div>)
             }
-           
+
 
 
         </>

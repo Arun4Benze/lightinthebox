@@ -1,0 +1,36 @@
+.recommended-product h2{
+ border-left: 5px solid red;
+}
+.card-image{
+    object-fit: cover !important;
+    height: 200px !important;
+}
+/* .recommended-product{
+    height: 300px !important;
+    width: 300px !important;
+} */
+.card-product{
+    width: 200px;
+    min-height: 400px;
+}
+.card-product-description{
+    margin: 0;
+    font-size: 14px;
+}
+.inr{
+    gap: 3px;
+    align-items: center;
+}
+.star{
+    align-items: center;
+}
+.original-inr{
+    font-size: 16px;
+    font-weight: 600;
+    padding: 0;
+}
+.cut-inr{
+    font-size: 13px;
+    padding: 0;
+    text-decoration: line-through;
+}

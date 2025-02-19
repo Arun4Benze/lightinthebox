@@ -114,3 +114,26 @@
 .category-btn button p{
     margin: 0;
 }
+.nav-products{
+    width:50%;
+    position: absolute;
+    left: 280px;
+    top: 68px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.nav-product-list{
+    display: flex;
+}
+.li-product{
+    list-style-type: none;
+    font-size: 12px;
+    padding-right: 8px;
+   
+}
+.li-product:hover{
+    color: red;
+    text-decoration: underline;
+    cursor: pointer;
+}

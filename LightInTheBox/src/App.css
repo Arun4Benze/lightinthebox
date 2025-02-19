@@ -1,4 +1,5 @@
-/* .contents{
-    position: relative;
-    z-index: -99;
-} */
+.contents{
+    position: absolute;
+    z-index: 9;
+    top: 170px;
+}
