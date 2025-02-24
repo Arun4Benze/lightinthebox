@@ -1,0 +1,106 @@
+.shopping-title{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 5px 10px;
+    height: 75px;
+}
+.shopping-details{
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.shopping-details div label{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 5px;
+}
+.shopping-details div label img{
+    width: 75px;
+}
+.shopping-product-quantity{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 100px;
+}
+.shipping-product-delete{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 8px;
+    align-items: center;
+}
+.shopping-product-quantity label{
+    font-size: 16px;
+    font-weight: 400;
+    display: flex;
+    gap: 20px;
+    justify-content: start;
+    align-items: center;
+    margin-top: 10px;
+}
+.shopping-product-quantity button{
+    outline: 0;
+    border: 0;
+    background-color: rgb(190, 189, 189);
+    color: black;
+    padding: 4px 10px;
+}
+.shipping-total{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.shipping-total .shipping-total-heading h4{
+    font-size: 20px;
+    font-weight: 600;
+}
+.subtotal{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.cart-total{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.checkout-buttons{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+}
+.checkout-buttons Link{
+    width: 100%;
+}
+.checkout{
+    background-color: red;
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 8px 15px;
+    outline: 0;
+    border: 0;
+    border-radius: 8px;
+}
+.checkout:hover{
+    background-color: rgb(163, 3, 3);
+}
+.paypal{
+    background-color: rgb(208, 208, 4);
+    color: black;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 8px 15px;
+    outline: 0;
+    border: 0;
+    border-radius: 8px;
+}

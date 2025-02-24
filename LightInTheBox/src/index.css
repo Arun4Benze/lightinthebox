@@ -2,6 +2,9 @@
     margin: 0;
     padding: 0;
 }
+body{
+    overflow-x: hidden;
+}
 /* all clothing categeories */
 .dress-category h3{
     color: black;

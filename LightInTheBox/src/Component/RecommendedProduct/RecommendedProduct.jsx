@@ -5,13 +5,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 
 
-const RecommendedProduct = ({id,title,category,description,image,price,rating,ratingCount}) => {
+const RecommendedProduct = ({id,onClick,title,category,description,image,price,rating,ratingCount}) => {
+    // console.log(selectedData)
     return (
         <>
-            <div className='recommended-product'>
+        
+            <div className='recommended-product' onClick={onClick}>
                 
                 <div className="card card-product my-4">
-                    <img src={image} className="card-img-top img-fluid card-image" alt={title} />
+                    <img src={image} className="card-img-top img-fluid card-image" alt="..." />
                     <div className="card-body">
                         
                         <p className="card-text card-product-description">{description.slice(0,40)+"..."}</p>
@@ -27,6 +29,7 @@ const RecommendedProduct = ({id,title,category,description,image,price,rating,ra
                     </div>
                 </div>
             </div>
+            
         </>
     )
 }

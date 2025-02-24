@@ -4,9 +4,11 @@ import logo from "../../assets/logo.jpg";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faChevronUp, faAddressCard, faHeart, faCartShopping, faMagnifyingGlass, faBars } from '@fortawesome/free-solid-svg-icons';
 import { useLocation, useNavigate } from 'react-router';
+import AllCategory from "../AllCategory/AllCategory.jsx"
 
 
-const Navbar = () => {
+
+const Navbar = ({ addcart, isHoveredAllCategories, HandleMouseEnterAllCategories, HandleMouseLeaveAllCategories }) => {
     const [registerPop, setRegisterPop] = useState(false);
     const HandleRegisterPop = () => {
         setRegisterPop(prev => !prev);
@@ -24,7 +26,7 @@ const Navbar = () => {
     const categories = ["New Arrivals", "Beach Wedding", "Graphic store", "st.Patrick", "Lenin", "Vacation vibes", "Carnival", "Personalised gifts"];
     const [category, setCategory] = useState(categories);
     const phoneCategories = [
-        "Smartphones", "Tablets","Smartwatches", "Accessories", "Laptops","Headphones","Chargers","Phone Cases"];  
+        "Smartphones", "Tablets", "Smartwatches", "Accessories", "Laptops", "Headphones", "Chargers", "Phone Cases"];
     // use navigate from react router
     const navigate = useNavigate();
     const navigateLogo = () => {
@@ -37,6 +39,12 @@ const Navbar = () => {
     const navbarPhoneProducts = [
         "Smartphones", "Tablets", "Accessories", "Laptops", "Smartwatches", "Headphones", "Chargers"
     ];
+    const allCategoryWidthObj = {
+        width: "200px",
+        height: "auto",
+        marginTop: "32px"
+
+    }
 
 
     return (
@@ -74,7 +82,7 @@ const Navbar = () => {
                                 </li>
                                 <li className="nav-item d-flex flex-column aligin-items-center">
                                     <FontAwesomeIcon icon={faCartShopping} />
-                                    <p>Cart</p>
+                                    <p>Cart {addcart}</p>
                                 </li>
                             </ul>
                         </div>
@@ -88,11 +96,15 @@ const Navbar = () => {
                                     navbarHomeProducts.map((navbarHomeProduct, index) => {
                                         return <li key={index} className="li-product">{navbarHomeProduct}</li>;
                                     })
-                                ) : (
+                                ) : location.pathname === "/Phones&accessories" ? (
                                     navbarPhoneProducts.map((navbarPhoneProduct, index) => {
                                         return <li key={index} className="li-product">{navbarPhoneProduct}</li>;
                                     })
-                                )
+                                ) :
+                                    (null)
+
+
+
                             }
 
                         </ul>
@@ -102,26 +114,39 @@ const Navbar = () => {
 
 
             {/* categories */}
-            <div className="container-fluid">
+            {location.pathname !== "/shippingcart" ? (<div className="container-fluid">
                 <div className="row">
-                    <div className="col-md-2 category-btn">
-                        <button><FontAwesomeIcon icon={faBars} /><p>All Categories</p></button>
+                    <div className="col-md-2 category-btn"
+                        onMouseEnter={HandleMouseEnterAllCategories}
+                    >
+                        <button><FontAwesomeIcon icon={faBars} /><p
+                        >All Categories</p></button>
                     </div>
+                    {isHoveredAllCategories && <AllCategory HandleMouseLeaveAllCategories={HandleMouseLeaveAllCategories}
+                        allCategoryWidthObj={allCategoryWidthObj}
+                    />}
                     <div className="col-md-10 d-flex justify-content-around categories">
-                        {location.pathname==="/"?
-                    (category.map((cate, index) => {
-                        return <a href='' key={index} className='text-decoration-none'>{cate}</a>
-                    })) :
-                    (
-                        phoneCategories.map((phcate, index) => {
-                            return <a href='' key={index} className='text-decoration-none'>{phcate}</a>
-                        })
-                    )   
-                    }
+                        {location.pathname === "/" ?
+                            (category.map((cate, index) => {
+                                return <a href='' key={index} className='text-decoration-none'>{cate}</a>
+                            })) :
+                            location.pathname === "/Phones&accessories" ? (
+                                phoneCategories.map((phcate, index) => {
+                                    return <a href='' key={index} className='text-decoration-none'>{phcate}</a>
+                                })
+                            ) : location.pathname === "/shippingcart" ? (null) :
+                                (category.map((cate, index) => {
+                                    return <a href='' key={index} className='text-decoration-none'>{cate}</a>
+                                }))
+                        }
                     </div>
 
                 </div>
-            </div>
+            </div>)
+                :
+                (null)
+            }
+
 
 
             {registerPop && (

@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from '../../Component/Navbar/Navbar';
 import AllCategory from '../../Component/AllCategory/AllCategory';
-import { useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import RecommendedProduct from '../../Component/RecommendedProduct/RecommendedProduct';
 import "../PhoneaAndAccessories/PhonesAndAccessories.css";
 
 const PhonesAndAccessories = () => {
-  // const {pageName}=useParams();
-  // console.log(pageName);
-  // const [selected,setSelected]=useState();
   
   const [phones, setPhones] = useState([]);
   const [selectedRating, setSelectedRating] = useState(null);
@@ -51,6 +48,14 @@ const PhonesAndAccessories = () => {
   useEffect(() => {
     fetchPhones();
   }, []);
+  const navigate=useNavigate();
+  const productClick= async(productId)=>{
+    const res = await fetch(`https://fakestoreapi.com/products/${productId}`);
+    const json=await res.json();
+    setPhones(json);
+    console.log(json);
+    navigate(`/product/${productId}`)
+  }
 
 
   return (
@@ -108,7 +113,7 @@ const PhonesAndAccessories = () => {
             <div className="row">
               {phones.map((phone) => {
                 return (<div key={phone.id} className="col-md-4">
-                  <RecommendedProduct
+                  <RecommendedProduct onClick={()=>productClick(phone.id)}
                     id={phone.id}
                     title={phone.title}
                     category={phone.category}
@@ -117,6 +122,7 @@ const PhonesAndAccessories = () => {
                     price={phone.price}
                     rating={phone.rating.rate}
                     ratingCount={phone.rating.count}
+                    // selectedData={selectedData}
                   />
 
                 </div>)
