@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import "../ProductDisplay/ProductDisplay.css"
 import { Link, useParams } from 'react-router';
 import Navbar from '../../Component/Navbar/Navbar';
@@ -7,6 +7,7 @@ import { FaPinterestSquare } from "react-icons/fa";
 import { CiHeart } from "react-icons/ci";
 import { FaSuitcase } from "react-icons/fa6";
 import { FaChevronDown } from "react-icons/fa";
+import { CartContextValue } from '../../Contexts/CartContext';
 
 const ProductDisplay = () => {
     const [isHoveredAllCategories,setIsHoveredAllCategories]=useState(false)
@@ -40,15 +41,25 @@ const ProductDisplay = () => {
     const [quantityCount, setQuantityCount] = useState(0);
     const handleQuantityIncrease = () => {
 
-        setQuantityCount(prevcount => prevcount + 1);
+        setQuantityCount((prevcount) => {
+            const newCount=prevcount + 1;
+            setAddCart(newCount);
+            return newCount;
+        });
     }
     const handleQuantityDecrease = () => {
 
-        setQuantityCount(prevcount => prevcount > 0 ? prevcount - 1 : 0);
+        setQuantityCount((prevcount) => {
+            const newCount=prevcount > 0 ? prevcount - 1 : 0;
+            setAddCart(newCount);
+            return newCount
+        });
     }
-    const [addcart,setAddCart]=useState(0);
+    
+    // getting from app.jsx
+    const {addcart,setAddCart}=useContext(CartContextValue)
     const handleAddCart=()=>{
-        setAddCart(quantityCount);
+        setAddCart((prevAddCart)=>prevAddCart+quantityCount);
     }
     return (
         <>
@@ -126,13 +137,15 @@ const ProductDisplay = () => {
                             </div>
                             <div className="quantity">
                                 <label htmlFor="">Quantity:
-                                    <button onClick={handleQuantityDecrease}>-</button><span>{quantityCount}</span><button onClick={handleQuantityIncrease}>+</button>
+                                    <button onClick={() => { handleQuantityDecrease(); handleAddCart(); }}
+                                    
+                                    >-</button><span>{quantityCount}</span><button onClick={() => { handleQuantityIncrease(); handleAddCart(); }}>+</button>
                                 </label>
                             </div>
                             <div className="cart d-flex gap-2">
                             <Link to="/shippingcart">
-                                <button className='add-to-cart' onClick={handleAddCart}>
-                                    Add To Cart
+                                <button className='add-to-cart'>
+                                    Move to Cart
                                     </button>
                                     </Link>
                                 <button className='heart'><CiHeart /></button>

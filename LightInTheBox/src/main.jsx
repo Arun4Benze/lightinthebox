@@ -8,11 +8,14 @@ import './scss/styles.scss'
 
 // Import all of Bootstrap's JS
 import * as bootstrap from 'bootstrap'
+import { CartContext } from './Contexts/CartContext.jsx';
 
 createRoot(document.getElementById('root')).render(
+  
   <BrowserRouter>
   <StrictMode>
     <App />
   </StrictMode>
   </BrowserRouter>,
+  
 )

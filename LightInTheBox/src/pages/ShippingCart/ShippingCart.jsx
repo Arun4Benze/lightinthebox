@@ -3,11 +3,14 @@ import '../ShippingCart/ShippingCart.css';
 import Navbar from '../../Component/Navbar/Navbar';
 import ss from "../../assets/logo.jpg"
 import { Link } from 'react-router';
+import { useContext } from 'react';
+import { CartContextValue } from '../../Contexts/CartContext';
 
 const ShippingCart = () => {
+  const {addcart,setAddCart}=useContext(CartContextValue)
   return (
     <>
-      <Navbar />
+      <Navbar addcart={addcart}/>
       <div className="container">
         <div className="row d-flex">
           <div className="col-md-8 px-4">

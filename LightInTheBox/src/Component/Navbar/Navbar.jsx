@@ -6,9 +6,10 @@ import { faChevronDown, faChevronUp, faAddressCard, faHeart, faCartShopping, faM
 import { useLocation, useNavigate } from 'react-router';
 import AllCategory from "../AllCategory/AllCategory.jsx"
 
-
-
 const Navbar = ({ addcart, isHoveredAllCategories, HandleMouseEnterAllCategories, HandleMouseLeaveAllCategories }) => {
+
+
+    
     const [registerPop, setRegisterPop] = useState(false);
     const HandleRegisterPop = () => {
         setRegisterPop(prev => !prev);
@@ -83,6 +84,7 @@ const Navbar = ({ addcart, isHoveredAllCategories, HandleMouseEnterAllCategories
                                 <li className="nav-item d-flex flex-column aligin-items-center">
                                     <FontAwesomeIcon icon={faCartShopping} />
                                     <p>Cart {addcart}</p>
+                                    
                                 </li>
                             </ul>
                         </div>

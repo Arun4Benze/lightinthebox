@@ -1,12 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import "../RecommendedProduct/RecommendedProduct.css";
 import card from "../../assets/recomendedcard.webp";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import { CartContextValue } from '../../Contexts/CartContext';
 
 
 const RecommendedProduct = ({id,onClick,title,category,description,image,price,rating,ratingCount}) => {
-    // console.log(selectedData)
+    const{addcart,setAddCart} =useContext(CartContextValue);
+    const handleCartBtn=(e)=>{
+        e.stopPropagation();
+        setAddCart(c=>c+1);
+    }
     return (
         <>
         
@@ -25,6 +30,7 @@ const RecommendedProduct = ({id,onClick,title,category,description,image,price,r
                             <p className='star'>{rating} {`(${ratingCount})`}</p>
                             <p className='favourite'><FontAwesomeIcon icon={faHeart} /></p>
                         </div>
+                        <button onClick={handleCartBtn} className='recommended-add-cart-btn'>Add to cart</button>
                         
                     </div>
                 </div>

@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState ,useContext} from 'react'
 import Navbar from '../../Component/Navbar/Navbar';
 import AllCategory from '../../Component/AllCategory/AllCategory';
 import { useNavigate } from 'react-router-dom';
 import RecommendedProduct from '../../Component/RecommendedProduct/RecommendedProduct';
 import "../PhoneaAndAccessories/PhonesAndAccessories.css";
+import { CartContextValue } from '../../Contexts/CartContext';
 
 const PhonesAndAccessories = () => {
   
@@ -57,10 +58,12 @@ const PhonesAndAccessories = () => {
     navigate(`/product/${productId}`)
   }
 
+  const{addcart,setAddCart} =useContext(CartContextValue);
+
 
   return (
     <>
-      <Navbar />
+      <Navbar addcart={addcart} />
 
       <div className="container">
         <div className="row">
